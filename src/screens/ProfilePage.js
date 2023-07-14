@@ -4,8 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useRoute } from '@react-navigation/native';
 
 
-const ProfilePage = ({ navigation, phoneNumber }) => {
-
+const ProfilePage = ({ navigation }) => {
+    const route = useRoute()
+    const {phoneNumber, email, about} = route.params
 
 
     const handleEditProfile = () => {
@@ -31,14 +32,12 @@ const ProfilePage = ({ navigation, phoneNumber }) => {
 
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>Email</Text>
-                        <Text style={styles.value}>john_doe@gmail.com</Text>
+                        <Text style={styles.value}>{email}</Text>
                     </View>
 
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>Tell Us About Yourself</Text>
-                        <Text style={styles.value}>
-                            Hi, my name is John and I'm from San Francisco, California. I enjoy playing basketball and football.
-                        </Text>
+                        <Text style={styles.value}>{about}</Text>
                     </View>
                 </View>
             </View>
