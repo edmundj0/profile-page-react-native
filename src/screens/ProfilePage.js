@@ -1,12 +1,12 @@
 import { Avatar } from 'react-native-paper';
 import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useRoute } from '@react-navigation/native';
+import ProfileContext from '../context/context';
+import { useContext } from 'react';
 
 
 const ProfilePage = ({ navigation }) => {
-    const route = useRoute()
-    const {phoneNumber, email, about} = route.params
+    const {phoneNumber, email, about} = useContext(ProfileContext)
 
 
     const handleEditProfile = () => {
