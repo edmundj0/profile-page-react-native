@@ -1,13 +1,9 @@
-import { Avatar } from 'react-native-paper';
-import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaView, View, Text, StyleSheet, Image } from 'react-native';
 import ProfileContext from '../context/context';
 import { useContext } from 'react';
 
-
 const ProfilePage = ({ navigation }) => {
-    const {phoneNumber, email, about} = useContext(ProfileContext)
-
+    const { phoneNumber, email, about } = useContext(ProfileContext);
 
     const handleEditProfile = () => {
         navigation.navigate('EditProfile');
@@ -15,13 +11,16 @@ const ProfilePage = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>My Profile</Text>
+            <Text style={styles.title}>Profile</Text>
 
             <View style={styles.profileContainer}>
                 <View style={styles.avatarContainer}>
-                    <Avatar.Image
-                        size={100}
-                    />
+                    <View style={styles.imageContainer}>
+                        <Image
+                            style={styles.avatarImage}
+                            source={require('../assets/default_avatar.png')}
+                        />
+                    </View>
                 </View>
 
                 <View style={styles.infoContainer}>
@@ -66,6 +65,16 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 4,
         elevation: 5,
+    },
+    imageContainer: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        overflow: 'hidden',
+    },
+    avatarImage: {
+        width: '100%',
+        height: '100%',
     },
     infoContainer: {
         width: '100%',

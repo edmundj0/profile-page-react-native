@@ -24,12 +24,12 @@ export default function App() {
               headerRight: () => (
                 <Button
                   title="Edit Profile"
-                  onPress={() => navigation.navigate('EditProfile')}
+                  onPress={() => navigation.navigate('Edit Profile')}
                 />
               ),
             })}
           />
-          <Stack.Screen name="EditProfile" component={EditProfilePage} />
+          <Stack.Screen name="Edit Profile" component={EditProfilePage} />
         </Stack.Navigator>
       </NavigationContainer>
     </ProfileProvider>
