@@ -1,13 +1,25 @@
-import { SafeAreaView, View, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import ProfileContext from '../context/context';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AntDesign } from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
 
 const ProfilePage = ({ navigation }) => {
+    const [image, setImage] = useState(null)
     const { phoneNumber, email, about } = useContext(ProfileContext);
 
-    const handleEditProfile = () => {
-        navigation.navigate('EditProfile');
-    };
+    const addImage = async () => {
+        let _image = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+        if (!_image.canceled) {
+            setImage(_image.uri)
+        }
+    }
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -16,10 +28,19 @@ const ProfilePage = ({ navigation }) => {
             <View style={styles.profileContainer}>
                 <View style={styles.avatarContainer}>
                     <View style={styles.imageContainer}>
-                        <Image
+                        {!image && <Image
                             style={styles.avatarImage}
                             source={require('../assets/default_avatar.png')}
-                        />
+                        />}
+                        {
+                            image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+                        }
+                        <View style={styles.uploadBtnContainer}>
+                            <TouchableOpacity onPress={addImage} style={styles.uploadBtn} >
+                                <Text>{image ? 'Edit' : 'Upload'} Image</Text>
+                                <AntDesign name="camera" size={20} color="black" />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
 
@@ -67,10 +88,13 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     imageContainer: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        overflow: 'hidden',
+        elevation:5,
+        height:150,
+        width:150,
+        backgroundColor:'#efefef',
+        position:'relative',
+        borderRadius:999,
+        overflow:'hidden',
     },
     avatarImage: {
         width: '100%',
@@ -99,6 +123,23 @@ const styles = StyleSheet.create({
         marginBottom: 16,
         textAlign: 'center',
     },
+    uploadBtnContainer: {
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'lightgrey',
+        width: '100%',
+        height: '25%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity: 0.7,
+        borderRadius: 8,
+    },
+    uploadBtn: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
 
 export default ProfilePage;
