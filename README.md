@@ -29,10 +29,12 @@ This profile page allows user to display their email, phone number, and a short 
 How the project looks on iOS device:
 
 Profile Page:
-![ag_mobile_portfolio](https://github.com/edmundj0/profile-page-react-native/assets/102005831/c7f572d4-23cc-45c7-a8c3-f715b91eb4c7)
+![ag_profile_page](https://github.com/edmundj0/profile-page-react-native/assets/102005831/17dbc5cd-fbb9-4322-8c83-ea844f3cff78)
+
 
 
 Edit Profile Page:
-![ag_mobile_portfolio_edit](https://github.com/edmundj0/profile-page-react-native/assets/102005831/16148211-a894-44c2-b2ec-5d07cfb110b0)
+![ag_profile_page_edit](https://github.com/edmundj0/profile-page-react-native/assets/102005831/fe4c81b4-7aca-4fed-b0c6-7424aec909c7)
+
 
 
