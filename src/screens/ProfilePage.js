@@ -7,7 +7,7 @@ import styles from '../styles/ProfilePageStyles'
 
 const ProfilePage = () => {
     const [image, setImage] = useState(null)
-    const { phoneNumber, email, about } = useContext(ProfileContext);
+    const { name, phoneNumber, email, about } = useContext(ProfileContext);
 
     const addImage = async () => {
         let _image = await ImagePicker.launchImageLibraryAsync({
@@ -46,6 +46,11 @@ const ProfilePage = () => {
                 </View>
 
                 <View style={styles.infoContainer}>
+                    <View style={styles.fieldContainer}>
+                        <Text style={styles.label}>Name</Text>
+                        <Text style={styles.value}>{name}</Text>
+                    </View>
+
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>Phone Number</Text>
                         <Text style={styles.value}>{phoneNumber}</Text>

@@ -6,13 +6,15 @@ import styles from '../styles/EditProfilePageStyles'
 
 const EditProfileScreen = () => {
   const navigation = useNavigation();
-  const { phoneNumber, email, about, setPhoneNumber, setEmail, setAbout } = useContext(ProfileContext);
+  const { name, phoneNumber, email, about, setName, setPhoneNumber, setEmail, setAbout } = useContext(ProfileContext);
 
+  const [originalName, setOriginalName] = useState(name);
   const [originalEmail, setOriginalEmail] = useState(email);
   const [originalPhoneNumber, setOriginalPhoneNumber] = useState(phoneNumber);
   const [originalAbout, setOriginalAbout] = useState(about);
 
   const handleCancel = () => {
+    setName(originalName);
     setPhoneNumber(originalPhoneNumber);
     setEmail(originalEmail);
     setAbout(originalAbout);
@@ -21,6 +23,15 @@ const EditProfileScreen = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.fieldContainer}>
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Name"
+          value={name}
+          onChangeText={setName}
+        />
+      </View>
       <View style={styles.fieldContainer}>
         <Text style={styles.label}>Phone Number</Text>
         <TextInput
