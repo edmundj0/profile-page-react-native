@@ -21,3 +21,18 @@ This profile page allows user to display their email, phone number, and a short 
    https://apps.apple.com/us/app/expo-go/id982107779 (iOS)
    https://play.google.com/store/apps/details?id=host.exp.exponent (Android)
 5. Use your mobile device to scan the QR code from the terminal, which should bring up the Expo Go application to view this project. This may take a few seconds, even after bundling is at 100%. Please give a couple extra moments.
+
+**IF NECESSARY TO VIEW ON THE WEB - after step 3, press 'w' in the terminal to view the application and start the Webpack development server on port 19006. Navigate to localhost:19006 to view the project through your browser.
+
+
+## Project Pictures
+How the project looks on iOS device:
+
+Profile Page:
+![ag_mobile_portfolio](https://github.com/edmundj0/profile-page-react-native/assets/102005831/c7f572d4-23cc-45c7-a8c3-f715b91eb4c7)
+
+
+Edit Profile Page:
+![ag_mobile_portfolio_edit](https://github.com/edmundj0/profile-page-react-native/assets/102005831/16148211-a894-44c2-b2ec-5d07cfb110b0)
+
+
