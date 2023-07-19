@@ -13,13 +13,11 @@ This profile page allows user to display their email, phone number, and a short 
    ```
    npm install
    ```
-3. If @expo/ngrok and expo-cli are not installed on your system, install them
-   ```
-   npm install @expo/ngrok expo-cli
-   ```
-4. Start server. This should generate a QR code in your terminal
+3. Start server. This should generate a QR code in your terminal
    ```
    npx expo start --tunnel
    ```
-5. If Expo Go is not installed on your mobile device, click here to learn more / install: https://apps.apple.com/us/app/expo-go/id982107779 (iOS) https://play.google.com/store/apps/details?id=host.exp.exponent (Android)
-6. Use your mobile device to scan the QR code from the terminal, which should bring up the Expo Go application to view this project
+4. If Expo Go is not installed on your mobile device, click here to learn more / install:
+   https://apps.apple.com/us/app/expo-go/id982107779 (iOS)
+   https://play.google.com/store/apps/details?id=host.exp.exponent (Android)
+5. Use your mobile device to scan the QR code from the terminal, which should bring up the Expo Go application to view this project. This may take a few seconds, even after bundling is at 100%. Please give a couple extra moments.
